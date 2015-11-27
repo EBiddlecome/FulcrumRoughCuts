@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery.js"></script>
+      <script src="data_generator.js"></script>
+      <link rel="stylesheet" type="text/css" href="twittlerui.css">
+    <title>TGA's Twittler</title>
+  </head>
+
+  <body>
+    <h1>WELCOME TO TGA's TWITTLER!</h1>
+
+<script>
+
+var intervalID = setInterval(myCallback, 1500);
+// auto load new tweets every half second
+function myCallback() {
+    $(document).ready(function(){
+        var $body = $('body');
+        $body.html('');
+$('<img src="header2.png">').prependTo("body");
+$('<img src="tgatwit.png">').appendTo("body");
+
+   var index = streams.home.length - 1;
+        while(index >= 0){
+          var tweet = streams.home[index];
+          var $tweet = $('<div></div>');
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + tweet.created_at);
+          // display timestamp
+          $tweet.appendTo($body);
+          index -= 1;
+        }
+
+  
+
+  
+      });
+  };
+  
+
+    </script>
+  </body>
+</html>
